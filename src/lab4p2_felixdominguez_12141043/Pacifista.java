@@ -15,7 +15,7 @@ public class Pacifista extends Aldeano{
     public Pacifista() {
     }
 
-    public Pacifista(int ataque, String nombre, String apellido, int edad, int vida) {
+    public Pacifista(String nombre, String apellido, int edad, int vida) {
         super(nombre, apellido, edad, vida);
         this.ataque = 0;
     }

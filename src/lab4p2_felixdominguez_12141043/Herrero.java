@@ -16,7 +16,7 @@ public class Herrero extends Aldeano{
     public Herrero() {
     }
 
-    public Herrero(int ataque, String nombre, String apellido, int edad, int vida) {
+    public Herrero(String nombre, String apellido, int edad, int vida) {
         super(nombre, apellido, edad, vida);
         int ra=200+r.nextInt(300);
         this.ataque = ra;
