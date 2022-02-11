@@ -119,18 +119,63 @@ public class Lab4P2_FelixDominguez_12141043 {
                     break;
                 }
                 case 4:{
-                    System.out.println("Ingrese la familia contra la cual los Montesco van a pelear: ");
-                    lea.nextLine();
-                    String familia=lea.nextLine();
-                    int con=0;
-                    for(int i=0;i<familias.size();i++){
-                        if(((Familia)familias.get(i)).getLinaje().equals(familia)){
-                             con=1;
+                    ((Familia)familias.get(0)).getAldeanos().remove(0);
+                    int num=1;
+                    while(num==1){
+                        System.out.println("Ingrese la familia contra la cual los Montesco van a pelear: ");
+                        lea.nextLine();
+                        String familia=lea.nextLine();
+                        int con=0;
+                        int fam=0;
+                        for(int i=0;i<familias.size();i++){
+                            if(((Familia)familias.get(i)).getLinaje().equals(familia)){
+                                 con=1;
+                                 fam=i;
+                            }
                         }
-                    }
-                    if(con==0){
-                        System.out.println("La familia no existe");
-                    }
+                        if(con==0){
+                            System.out.println("La familia no existe");
+                            break;
+                        }
+                        if(familias.size()>2 && familia.equals("Capuleto")){
+                            System.out.println("Se debe de vencer a las demas familias antes de pelear contra la familia Capuleto");
+                            break;
+                        }
+                        if(familia.equals("Montesco")){
+                            System.out.println("La familia Montesco no puede pelear contra si misma");
+                        }
+                        if(((Familia)familias.get(fam)).getAldeanos().isEmpty()){
+                            System.out.println("La familia no contiene a ningun  aldeano");
+                        
+                        }
+                        int contro=1;
+                        while (contro==1){
+                            int ran=0+r.nextInt(((Familia)familias.get(fam)).getAldeanos().size());
+                            int ran2=0+r.nextInt(((Familia)familias.get(1)).getAldeanos().size());
+                            int vop=((Familia)familias.get(fam)).getAldeanos().get(ran).getVida();
+                            int vat=((Familia)familias.get(fam)).getAldeanos().get(ran2).getVida();
+                            int aop=((Familia)familias.get(fam)).getAldeanos().get(ran).getAtaque();
+                            int aat=((Familia)familias.get(fam)).getAldeanos().get(ran2).getAtaque();
+                            int muerte=0;
+                            while (muerte==0){
+                                vop=vop-aat;
+                                if(vop<1){
+                                    muerte=1;
+                                    ((Familia)familias.get(fam)).getAldeanos().remove(ran);
+                                    break;
+                                }
+                                vat=vat-aop;
+                                if(vat<1){
+                                    muerte=1;
+                                    ((Familia)familias.get(fam)).getAldeanos().remove(ran2);
+                                    break;
+                                } 
+                            }
+                            if(((Familia)familias.get(fam)).getAldeanos().isEmpty()){
+                                contro=0;
+                            }
+                        }
+                    }    
                     break;
                 }
                 case 5:{
