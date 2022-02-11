@@ -14,4 +14,34 @@ import java.util.ArrayList;
 public class Familia {
     private String linaje;
     private ArrayList<Aldeano> aldeanos=new ArrayList();
+
+    public Familia() {
+    }
+
+    public Familia(String linaje) {
+        this.linaje = linaje;
+    }
+
+    public String getLinaje() {
+        return linaje;
+    }
+
+    public void setLinaje(String linaje) {
+        this.linaje = linaje;
+    }
+
+    public ArrayList<Aldeano> getAldeanos() {
+        return aldeanos;
+    }
+
+    public void setAldeanos(ArrayList<Aldeano> aldeanos) {
+        this.aldeanos = aldeanos;
+    }
+
+    @Override
+    public String toString() {
+        return "linaje=" + linaje + ", aldeanos=" + aldeanos;
+    }
+    
+    
 }

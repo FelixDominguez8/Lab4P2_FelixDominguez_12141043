@@ -9,6 +9,24 @@ package lab4p2_felixdominguez_12141043;
  *
  * @author Lenovo I7
  */
-public class Supergranjero {
-    
+public class Supergranjero extends Aldeano{
+    private int ataque;
+
+    public Supergranjero() {
+    }
+
+    public Supergranjero(String nombre, String apellido, int edad, int vida) {
+        super(nombre, apellido, edad, vida);
+        this.ataque = 50;
+    }
+
+    @Override
+    public int getAtaque() {
+        return ataque;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "ataque=" + ataque;
+    }
 }

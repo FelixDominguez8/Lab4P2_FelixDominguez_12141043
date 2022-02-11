@@ -9,6 +9,24 @@ package lab4p2_felixdominguez_12141043;
  *
  * @author Lenovo I7
  */
-public class Explosivo {
-    
+public class Explosivo extends Aldeano{
+    private int ataque;
+
+    public Explosivo() {
+    }
+
+    public Explosivo(String nombre, String apellido, int edad, int vida) {
+        super(nombre, apellido, edad, vida);
+        this.ataque = 250;
+    }
+
+    @Override
+    public int getAtaque() {
+        return ataque;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "ataque=" + ataque;
+    }
 }
