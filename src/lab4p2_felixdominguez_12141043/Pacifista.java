@@ -20,6 +20,12 @@ public class Pacifista extends Aldeano{
         this.ataque = 0;
     }
     
+    public String discurso(){
+        String dis;
+        dis="La paz siempre es la solucion, no hay que pelear";
+        return dis;
+    }
+    
     @Override
     public int getAtaque() {
         return ataque;

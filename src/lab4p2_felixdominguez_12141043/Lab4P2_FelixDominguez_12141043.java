@@ -6,6 +6,7 @@
 package lab4p2_felixdominguez_12141043;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 /**
  *
  * @author Lenovo I7
@@ -13,6 +14,7 @@ import java.util.Scanner;
 public class Lab4P2_FelixDominguez_12141043 {
     static Scanner lea=new Scanner (System.in);
     static ArrayList<Familia> familias=new ArrayList();
+    static Random r=new Random();
 
     /**
      * @param args the command line arguments
@@ -44,7 +46,17 @@ public class Lab4P2_FelixDominguez_12141043 {
                     System.out.println("Ingrese el linaje (Apellido): ");
                     lea.nextLine();
                     String linaje=lea.nextLine();
-                    familias.add(new Familia(linaje));
+                    int con=0;
+                    for(int i=0;i<familias.size();i++){
+                        if(((Familia)familias.get(i)).getLinaje().equals(linaje)){
+                             con=1;
+                        }
+                    }
+                    if(con==1){
+                        System.out.println("La familia ya existe");
+                    }else if(con==0){
+                        familias.add(new Familia(linaje));
+                    }
                     break;
                 }
                 case 2:{
@@ -64,8 +76,10 @@ public class Lab4P2_FelixDominguez_12141043 {
                     int edad=lea.nextInt();
                     System.out.println("Ingrese la vida: ");
                     int vida=lea.nextInt();
+                    int con=0;
                     for(int i=0;i<familias.size();i++){
                         if(((Familia)familias.get(i)).getLinaje().equals(apellido)){
+                            con=1;
                             switch(tipo){
                                 case 1:{
                                     ((Familia)familias.get(i)).getAldeanos().add(new Normal(nombre, apellido, edad, vida));
@@ -91,6 +105,9 @@ public class Lab4P2_FelixDominguez_12141043 {
                             }
                         }
                     }
+                    if(con==0){
+                        System.out.println("No existe la familia del aldeano");
+                    }
                     break;
                 }
                 case 3:{
@@ -98,9 +115,22 @@ public class Lab4P2_FelixDominguez_12141043 {
                     for(Object temp:familias){
                         salida+=""+familias.indexOf(temp)+" - "+temp+"\n";
                     }
+                    System.out.println(salida);
                     break;
                 }
                 case 4:{
+                    System.out.println("Ingrese la familia contra la cual los Montesco van a pelear: ");
+                    lea.nextLine();
+                    String familia=lea.nextLine();
+                    int con=0;
+                    for(int i=0;i<familias.size();i++){
+                        if(((Familia)familias.get(i)).getLinaje().equals(familia)){
+                             con=1;
+                        }
+                    }
+                    if(con==0){
+                        System.out.println("La familia no existe");
+                    }
                     break;
                 }
                 case 5:{
