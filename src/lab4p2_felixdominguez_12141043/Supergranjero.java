@@ -19,10 +19,26 @@ public class Supergranjero extends Aldeano{
         super(nombre, apellido, edad, vida);
         this.ataque = 1000;
     }
+    
+    @Override
+    public String Tipo(){
+        return "Supergranjero";
+    }
 
     @Override
-    public int getAtaque() {
+    public int getAtaque(String tipo) {
+        if(tipo.equals("Herrero")){
+            ataque=((ataque/100)*10)+ataque;
+        }
+        if(tipo.equals("Explosivo")){
+            ataque=((ataque/100)*15)+ataque;
+        }
         return ataque;
+    }
+    
+    @Override
+    public int Fallo(){
+        return 0;
     }
 
     @Override

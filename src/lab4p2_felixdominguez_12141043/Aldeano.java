@@ -57,7 +57,15 @@ public class Aldeano {
         this.vida = vida;
     }
     
-    public int getAtaque() {
+    public int getAtaque(String tipo) {
+        return 0;
+    }
+    
+    public String Tipo(){
+        return "";
+    }
+    
+    public int Fallo(){
         return 0;
     }
 

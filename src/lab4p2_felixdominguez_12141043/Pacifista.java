@@ -27,8 +27,18 @@ public class Pacifista extends Aldeano{
     }
     
     @Override
-    public int getAtaque() {
+    public String Tipo(){
+        return "Pacifista";
+    }
+    
+    @Override
+    public int getAtaque(String tipo) {
         return ataque;
+    }
+    
+    @Override
+    public int Fallo(){
+        return 0;
     }
 
     @Override

@@ -19,10 +19,26 @@ public class Agronomo extends Aldeano{
         super(nombre, apellido, edad, vida);
         this.ataque = 100;
     }
+    
+    @Override
+    public String Tipo(){
+        return "Agronomo";
+    }
 
     @Override
-    public int getAtaque() {
+    public int getAtaque(String tipo) {
+        if(tipo.equals("Pacifista")){
+            ataque=((ataque/100)*5)+ataque;
+        }
+        if(tipo.equals("Normal")){
+            ataque=((ataque/100)*10)+ataque;
+        }
         return ataque;
+    }
+    
+    @Override
+    public int Fallo(){
+        return 5;
     }
 
     @Override

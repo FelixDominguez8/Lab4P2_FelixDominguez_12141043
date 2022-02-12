@@ -23,8 +23,24 @@ public class Herrero extends Aldeano{
     }
     
     @Override
-    public int getAtaque() {
+    public String Tipo(){
+        return "Herrero";
+    }
+    
+    @Override
+    public int getAtaque(String tipo) {
+        if(tipo.equals("Agronomo")){
+            ataque=((ataque/100)*10)+ataque;
+        }
+        if(tipo.equals("Pacifista")){
+            ataque=((ataque/100)*5)+ataque;
+        }
         return ataque;
+    }
+    
+    @Override
+    public int Fallo(){
+        return 10;
     }
 
     @Override

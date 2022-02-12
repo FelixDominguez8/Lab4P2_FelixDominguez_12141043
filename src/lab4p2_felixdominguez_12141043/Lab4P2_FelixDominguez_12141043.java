@@ -155,11 +155,16 @@ public class Lab4P2_FelixDominguez_12141043 {
                             int ran=0+r.nextInt(((Familia)familias.get(fam)).getAldeanos().size());
                             int ran2=0+r.nextInt(((Familia)familias.get(1)).getAldeanos().size());
                             int vop=((Familia)familias.get(fam)).getAldeanos().get(ran).getVida();
-                            int vat=((Familia)familias.get(1)).getAldeanos().get(ran2).getVida();
-                            int aop=((Familia)familias.get(fam)).getAldeanos().get(ran).getAtaque();
-                            int aat=((Familia)familias.get(1)).getAldeanos().get(ran2).getAtaque();
+                            int vat=((Familia)familias.get(1)).getAldeanos().get(ran2).Fallo();
+                            int fop=((Familia)familias.get(fam)).getAldeanos().get(ran).Fallo();
+                            int fat=((Familia)familias.get(1)).getAldeanos().get(ran2).getVida();
+                            String tipo=((Familia)familias.get(fam)).getAldeanos().get(ran).Tipo();
+                            String tipo2=((Familia)familias.get(1)).getAldeanos().get(ran2).Tipo();
+                            int aop=((Familia)familias.get(fam)).getAldeanos().get(ran).getAtaque(tipo2);
+                            int aat=((Familia)familias.get(1)).getAldeanos().get(ran2).getAtaque(tipo);
                             int muerte=0;
                             while (muerte==0){
+                                
                                 vop=vop-aat;
                                 System.out.println(((Familia)familias.get(1)).getAldeanos().get(ran2).getNombre()+" hizo "+aat+" de daño");
                                 System.out.println(((Familia)familias.get(fam)).getAldeanos().get(ran).getNombre()+" tiene "+vop+" de vida");

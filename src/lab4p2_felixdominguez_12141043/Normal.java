@@ -19,10 +19,23 @@ public class Normal extends Aldeano{
         super(nombre, apellido, edad, vida);
         this.ataque = 50;
     }
+    
+    @Override
+    public String Tipo(){
+        return "Normal";
+    }
 
     @Override
-    public int getAtaque() {
+    public int getAtaque(String tipo) {
+        if(tipo.equals("Pacifista")){
+            ataque=((ataque/100)*5)+ataque;
+        }
         return ataque;
+    }
+    
+    @Override
+    public int Fallo(){
+        return 0;
     }
 
     @Override
