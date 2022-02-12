@@ -24,7 +24,7 @@ public class Lab4P2_FelixDominguez_12141043 {
         familias.add(new Familia("Capuleto"));
         familias.add(new Familia("Montesco"));
         familias.add(new Familia("Vallecillos"));
-        ((Familia)familias.get(0)).getAldeanos().add(new Normal("Julieta", "Capuleto", 18, 100));
+        //((Familia)familias.get(0)).getAldeanos().add(new Normal("Julieta", "Capuleto", 18, 100));
         ((Familia)familias.get(1)).getAldeanos().add(new Supergranjero("Romeo", "Montesco", 18, 1000));
         ((Familia)familias.get(1)).getAldeanos().add(new Herrero("Carlos", "Montesco", 32, 800));
         ((Familia)familias.get(1)).getAldeanos().add(new Agronomo("Juan", "Montesco", 28, 600));
@@ -119,7 +119,7 @@ public class Lab4P2_FelixDominguez_12141043 {
                     break;
                 }
                 case 4:{
-                    ((Familia)familias.get(0)).getAldeanos().remove(0);
+                    //((Familia)familias.get(0)).getAldeanos().remove(0);
                     int num=1;
                     while(num==1){
                         System.out.println("Ingrese la familia contra la cual los Montesco van a pelear: ");
@@ -143,39 +143,71 @@ public class Lab4P2_FelixDominguez_12141043 {
                         }
                         if(familia.equals("Montesco")){
                             System.out.println("La familia Montesco no puede pelear contra si misma");
+                            break;
                         }
                         if(((Familia)familias.get(fam)).getAldeanos().isEmpty()){
-                            System.out.println("La familia no contiene a ningun  aldeano");
-                        
+                            System.out.println("La familia no contiene a ningun aldeano");
+                            familias.remove(fam);
+                            break;
                         }
                         int contro=1;
                         while (contro==1){
                             int ran=0+r.nextInt(((Familia)familias.get(fam)).getAldeanos().size());
                             int ran2=0+r.nextInt(((Familia)familias.get(1)).getAldeanos().size());
                             int vop=((Familia)familias.get(fam)).getAldeanos().get(ran).getVida();
-                            int vat=((Familia)familias.get(fam)).getAldeanos().get(ran2).getVida();
+                            int vat=((Familia)familias.get(1)).getAldeanos().get(ran2).getVida();
                             int aop=((Familia)familias.get(fam)).getAldeanos().get(ran).getAtaque();
-                            int aat=((Familia)familias.get(fam)).getAldeanos().get(ran2).getAtaque();
+                            int aat=((Familia)familias.get(1)).getAldeanos().get(ran2).getAtaque();
                             int muerte=0;
                             while (muerte==0){
                                 vop=vop-aat;
+                                System.out.println(((Familia)familias.get(1)).getAldeanos().get(ran2).getNombre()+" hizo "+aat+" de daño");
+                                System.out.println(((Familia)familias.get(fam)).getAldeanos().get(ran).getNombre()+" tiene "+vop+" de vida");
                                 if(vop<1){
                                     muerte=1;
+                                    System.out.println(((Familia)familias.get(fam)).getAldeanos().get(ran).getNombre()+" ha muerto");
                                     ((Familia)familias.get(fam)).getAldeanos().remove(ran);
                                     break;
                                 }
+                                System.out.println();
                                 vat=vat-aop;
+                                System.out.println(((Familia)familias.get(fam)).getAldeanos().get(ran).getNombre()+" hizo "+aop+" de daño");
+                                System.out.println(((Familia)familias.get(1)).getAldeanos().get(ran2).getNombre()+" tiene "+vat+" de vida");
                                 if(vat<1){
                                     muerte=1;
-                                    ((Familia)familias.get(fam)).getAldeanos().remove(ran2);
+                                    System.out.println(((Familia)familias.get(1)).getAldeanos().get(ran2).getNombre()+" ha muerto");
+                                    if(ran2==0){
+                                        num=0;
+                                    }
+                                    ((Familia)familias.get(1)).getAldeanos().remove(ran2);
                                     break;
-                                } 
+                                }
+                                System.out.println();
+                            }
+                            System.out.println();
+                            if(num==0){
+                                break;
                             }
                             if(((Familia)familias.get(fam)).getAldeanos().isEmpty()){
+                                familias.remove(fam);
                                 contro=0;
                             }
                         }
-                    }    
+                        
+                        if(familias.size()==1){
+                            System.out.println("!Los Montesco han ganado, ahora Romeo y Julieta podran estar juntos!");
+                            break;
+                        }
+                        int rom=0;
+                        for(int i=0;i<((Familia)familias.get(1)).getAldeanos().size();i++){
+                            if(((Familia)familias.get(1)).getAldeanos().get(i).getNombre().equals("Romeo")){
+                                 rom=1;
+                            }
+                        }
+                        if(rom==0){
+                            System.out.println("Romeo ha muerto, la familia Montesco ha perdido");
+                        }
+                    }
                     break;
                 }
                 case 5:{

@@ -17,7 +17,7 @@ public class Supergranjero extends Aldeano{
 
     public Supergranjero(String nombre, String apellido, int edad, int vida) {
         super(nombre, apellido, edad, vida);
-        this.ataque = 50;
+        this.ataque = 1000;
     }
 
     @Override
